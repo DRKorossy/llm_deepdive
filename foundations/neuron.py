@@ -3,10 +3,10 @@ from numpy.typing import NDArray
 
 
 class Solution:
-    def relu(self, x: NDArray[np.float64]) -> NDArray[np.float64]:
-        return np.maximum(np.zeros_like(x), x)
+    def relu(self, x: float) -> float:
+        return max(0, x)
     
-    def sigmoid(self, x: NDArray[np.float64]) -> NDArray[np.float64]:
+    def sigmoid(self, x: float) -> float:
         return 1/(1+np.exp(-x))
 
     
@@ -19,6 +19,6 @@ class Solution:
         activation_map = {"relu": self.relu, "sigmoid": self.sigmoid}
         activation_function = activation_map[activation]
         pre_activation = np.dot(x, w) + b
-        forward_value = activation_function(pre_activation)
+        forward_value = float(activation_function(pre_activation))
         return round(forward_value, 5)
         
