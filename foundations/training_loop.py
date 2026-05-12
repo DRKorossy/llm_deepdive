@@ -14,14 +14,13 @@ class Solution:
         # Loss: MSE = (1/n) * sum((y_hat - y)^2)
         # Initialize w = zeros, b = 0
         # return (np.round(w, 5), round(b, 5))
-        _, n_features = X.shape
+        n_samples, n_features = X.shape
         w = np.zeros(n_features)
         b = 0
-        n = len(y)
         for _ in range(epochs):
             y_hat = X @ w + b
-            dLdw = 2/n * X.T @ (y_hat - y)
-            dLdb = 2/n * (y_hat - y).sum()
+            dLdw = 2/n_samples * X.T @ (y_hat - y)
+            dLdb = 2/n_samples * (y_hat - y).sum()
             w = w - lr * dLdw
             b = b - lr * dLdb
         
