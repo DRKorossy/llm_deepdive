@@ -11,6 +11,7 @@ class Solution:
         logits = model(context)
         last_position_logits = logits[:, -1, :]
         probs = torch.softmax(last_position_logits, dim=-1)
+        
         samples = []
         for i in range(new_chars):
             sample = torch.multinomial(probs, 1, generator=generator)
