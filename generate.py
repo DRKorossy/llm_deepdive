@@ -7,7 +7,6 @@ class Solution:
         generator = torch.manual_seed(0)
         initial_state = generator.get_state()
 
-        
         samples = []
         for i in range(new_chars):
             if context.shape[1] > context_length:
