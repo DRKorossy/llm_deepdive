@@ -18,7 +18,7 @@ class GroupedQueryAttention(nn.Module):
     def forward(self, x: TensorType[float]) -> TensorType[float]:
         B, T, D = x.shape
 
-         # Project to Q, K, V and reshape into heads
+        # Project to Q, K, V and reshape into heads
         q = self.q_proj(x).view(B, T, self.num_heads, self.head_dim).transpose(1, 2)
         k = self.k_proj(x).view(B, T, self.num_kv_heads, self.head_dim).transpose(1, 2)
         v = self.v_proj(x).view(B, T, self.num_kv_heads, self.head_dim).transpose(1, 2)
