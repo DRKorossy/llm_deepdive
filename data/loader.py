@@ -17,6 +17,4 @@ class Solution:
             start = torch.randint(data.size()[0] - context_length, (1,))[0]
             X[i] = data[start : start + context_length]
             Y[i] = data[start + 1 : start + 1 + context_length]
-        print(X)
-        print(Y)
         return (torch.stack(X), torch.stack(Y))
