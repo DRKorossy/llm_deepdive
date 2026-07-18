@@ -9,7 +9,6 @@ class Solution:
         context_length: int, 
         batch_size: int
     ) -> Tuple[TensorType[int], TensorType[int]]:
-
         torch.manual_seed(0)
         X = [[] for _ in range(batch_size)]
         Y = list(X)
