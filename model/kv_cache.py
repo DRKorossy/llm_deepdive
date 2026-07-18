@@ -35,6 +35,7 @@ class CachedAttention(nn.Module):
 
         if kv_cache is None:
             kv_cache = KVCache()
+            
         cached_k, cached_v = kv_cache.update(K, V)
         scores = Q @ cached_k.transpose(-2, -1) * cached_k.shape[-1] ** -0.5
         output = torch.softmax(scores ,dim=-1) @ cached_v
