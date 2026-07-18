@@ -27,5 +27,4 @@ class Solution:
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
-
         return round(loss.item(), 4)
