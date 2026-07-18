@@ -28,7 +28,4 @@ class Solution:
         return len(self.tokenise_left_to_right_greedy(text, vocab))
 
     def fertility_score(self, text: str, vocab: Dict[str, int]) -> float:
-        # Compute tokens-per-word ratio (fertility).
-        # Higher = more expensive and less efficient.
-        # Round to 4 decimal places.
         return round(self.count_tokens(text, vocab) / len(text.split()), 4)
