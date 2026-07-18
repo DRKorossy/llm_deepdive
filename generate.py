@@ -7,7 +7,7 @@ class Solution:
         generator = torch.manual_seed(0)
         initial_state = generator.get_state()
 
-        ontext = context[:, -context_length:]
+        context = context[:, -context_length:]
         logits = model(context)
         last_position_logits = logits[:, -1, :]
         probs = torch.softmax(last_position_logits, dim=-1)
